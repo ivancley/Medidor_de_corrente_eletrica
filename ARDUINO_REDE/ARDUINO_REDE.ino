@@ -1,5 +1,5 @@
-#include "etherShield.h"
-#include "ETHER_28J60.h"
+#include <UIPEthernet.h>
+#include <SPI.h>
 // PROGRAMA: ENVIO DE DADOS VIA POST 
 // AUTOR: Ivancley Brito 
 
