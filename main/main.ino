@@ -10,6 +10,7 @@ EnergyMonitor em1;
 
 //Tensão da rede eletrica
 int rede = 220;
+int potencia = 0;
  
 //Pino do sensor SCT
 int pino_sct = A1;
@@ -18,15 +19,18 @@ void setup() {
   Serial.begin(9600);
   //Pino, calibracao - Cur Const= Ratio/BurdenR. 2000/33 = 60
   em1.current(pino_sct, 60);
-  double Irms = em1.calcIrms(1480);
-  Serial.print("Corrente : ");
-  Serial.print(Irms); // Irms
-  Serial.println("Potencia");
-  Serial.print(Irms*rede);
-  delay(1000);
+  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  double Irms = em1.calcIrms(1480);
+  Serial.println(" ");
+  Serial.print("Potencia: ");
+  Serial.print(Irms*rede);
+  Serial.print("W");
+  Serial.print(" Corrente: ");
+  Serial.print(Irms);
+  Serial.print(" A");
+  delay(1000);
 
 }
